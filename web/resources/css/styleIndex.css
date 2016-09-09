@@ -1,0 +1,13 @@
+body {
+    background: transparent;
+}
+.jumbotron {
+    background: url(Zdrowy-szybki-i-tani-obiad-wyprobuj-nasze-inspiracje.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    color: white;
+    text-shadow: #444 0 1px 1px;
+}

@@ -1,0 +1,60 @@
+.header-breakfast {
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    font-family: Georgia;
+    font-weight: bold;
+}
+.under-header {
+    font-family: Georgia;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.container {
+    margin-bottom: 100px;
+}
+.ingredients {
+    font-family: Georgia;
+}
+.ingredients h2 {
+    font-weight: bold;
+}
+.ingredients ul {
+    font-size: 17px;
+}
+.photo {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+.row {
+    margin-bottom: 50px;
+    box-shadow: rosybrown 10px 5px 5px 5px;
+    background-color: #f7f7f7;
+}
+.my-button {
+    font-family: Georgia;
+    background-color: rosybrown;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.my-button {
+    background-color: white;
+    color: black;
+    border: 2px solid rosybrown;
+}
+
+.my-button:hover {
+    background-color: rosybrown;
+    color: white;
+}

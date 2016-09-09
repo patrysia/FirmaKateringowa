@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" type="javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"  type="javascript"/>
+
+    <title><ui:insert name="title">Twoje pyszne jedzenie</ui:insert></title>
+    <h:outputStylesheet library="css" name="styleMenu.css" />
+    <ui:insert name="css" />
+</h:head>
+
+<h:body>
+    <body>
+        <div class="container">
+            <h1 class="header-menu">Wybierz menu</h1>
+            <p:dataTable var="kategoria" value="#{menuBean.categoriesList}">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID"/>
+                    </f:facet>
+                    <h:outputText value="#{kategoria.id}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nazwa"/>
+                    </f:facet>
+                    <h:outputText value="#{kategoria.nazwa}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+            <p:dataList value="#{menuBean.categoriesList}" var="kategoria" itemType="ordered">
+                #{kategoria.id}, #{kategoria.nazwa}
+            </p:dataList>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="img-responsive">
+                        <a href="breakfast.xhtml"><img src="resources/images/breakfast/Nalesniki-z-brzoskwiniami-i-sosem-czekoladowym.jpg"
+                                         alt="Śniadania" width="350" height="250" class="mymy"/></a>
+                        <div class="desc">Śniadania</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="img-responsive">
+                        <a href="starter.xhtml"><img src="resources/images/starter/melon_w_szynce_parmenskiej.jpg"
+                                         alt="Przystawki" width="350" height="250" class="mymy"/></a>
+                        <div class="desc">Przystawki</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="img-responsive">
+                        <a href="soup.xhtml"><img src="resources/images/soup/pikantny_krem_z_marchwii.jpg"
+                                         alt="Zupy" width="350" height="250" class="mymy"/></a>
+                        <div class="desc">Zupy</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="img-responsive">
+                        <a href="main_dish.xhtml"><img src="resources/images/main_dish/piers-kurczaka-z-mozzarella-i-suszonymi-pomidorami-video.jpg"
+                                         alt="Dania główne" width="350" height="250" class="mymy"/></a>
+                        <div class="desc">Dania główne</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="img-responsive">
+                        <a href="dessert.xhtml"><img src="resources/images/dessert/tiramisu.png"
+                                         alt="Desery" width="350" height="250" class="mymy"/></a>
+                        <div class="desc">Desery</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="img-responsive">
+                        <a href="drink.xhtml"><img src="resources/images/drink/hot/cappuccino.jpg"
+                                         alt="Napoje" width="350" height="250" class="mymy"/></a>
+                        <div class="desc">Napoje</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</h:body>
+
+</html>

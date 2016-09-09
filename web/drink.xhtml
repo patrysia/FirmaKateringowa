@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" type="javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"  type="javascript"/>
+
+    <title><ui:insert name="title">Twoje pyszne jedzenie - Napoje!</ui:insert></title>
+    <h:outputStylesheet library="css" name="styleFoods.css" />
+    <ui:insert name="css" />
+</h:head>
+
+<h:body>
+    <body>
+        <h1 class="header-breakfast">Napoje</h1>
+
+        <h2 class="under-header">Napoje zimne</h2>
+        <div class="container">
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/cold/woda_niegazowana.jpg" alt="Woda niegazowana"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Woda niegazowana</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/cold/woda_gazowana.jpg" alt="Woda gazowana"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Woda gazowana</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/cold/sok_pomaranczowy.png" alt="Sok pomarańczowy"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Sok pomarańczowy</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/cold/kompot_wisniowy.jpg" alt="Kompot wiśniowy"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Kompot wiśniowy</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/cold/coca-cola.jpg" alt="Coca cola"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Coca cola</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="under-header">Napoje gorące</h2>
+        <div class="container">
+            <div class="row" style="height: 250px;">
+            <div class="col-md-6" style="height: 250px;">
+                <div class="img" align="center">
+                    <img src="resources/images/drink/hot/kawa_espresso.jpg" alt="Espresso"
+                         width="auto" height="150px" class="photo"/>
+                </div>
+            </div>
+            <div class="col-md-6" style="height: 250px;">
+                <div class="ingredients">
+                    <h2>Espresso</h2>
+                </div>
+                <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+            </div>
+        </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/hot/kawa_latte.jpg" alt="Latte"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Latte</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/hot/cappuccino.jpg" alt="Cappuccino"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Cappuccino</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/hot/czarna_herbata.jpg" alt="Herbata czarna"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Herbata czarna</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/hot/zielona_herbata.jpg" alt="Zielona herbata"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Zielona herbata</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+            <div class="row" style="height: 250px;">
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="img" align="center">
+                        <img src="resources/images/drink/hot/czekolada.jpg" alt="Czekolada na gorąco"
+                             width="auto" height="150px" class="photo"/>
+                    </div>
+                </div>
+                <div class="col-md-6" style="height: 250px;">
+                    <div class="ingredients">
+                        <h2>Czekolada na gorąco</h2>
+                    </div>
+                    <button type="button" class="my-button" style="float: left; margin-top: 50px;">Zamawiam</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</h:body>
+</html>

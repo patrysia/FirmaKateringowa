@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<h:head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" type="javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"  type="javascript"/>
+
+    <title><ui:insert name="title">Twoje pyszne jedzenie - Dodawanie pozycji</ui:insert></title>
+    <h:outputStylesheet library="css" name="styleCategory.css" />
+    <ui:insert name="css" />
+
+    <script type="text/javascript">
+        var countBox =1;
+        var boxName = 0;
+        function addField()
+        {
+            var boxName="textBox"+countBox;
+            document.getElementById('responce').innerHTML+='&lt;br/>&lt;input type="text" class="form-control" ' +
+                    'id="nazwa-skladnika+boxName" placeholder="np. ryż biały"/>';
+            countBox += 1;
+        }
+    </script>
+
+</h:head>
+
+<h:body>
+    <body>
+        <h1>Dodawanie do kategorii</h1>
+        <div class="container">
+            <form action="" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label for="nazwa-kategorii" class="control-label">Kategoria</label>
+                        <select class="form-control" id="nazwa-kategorii">
+                            <option>Śniadania</option>
+                            <option>Przystawki</option>
+                            <option>Zupy</option>
+                            <option>Dania główne</option>
+                            <option>Desery</option>
+                            <option>Napoje</option>
+                            <option onclick="addCategory()">+ Dodaj nową kategorię</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label for="nazwa-dania" class="control-label">Nazwa dania</label>
+                        <input type="text" class="form-control" id="nazwa-dania" placeholder="np. Naleśniki z serem"/>
+                        <br></br>
+                        <div class="imageUpload btn btn-info">
+                            <span> <span class="glyphicon glyphicon-plus-sign"></span> Dodaj zdjęcie</span>
+                            <input type="file" class="upload" />
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <div class="form-group">
+                    <h3>Składniki dania</h3>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <label for="nazwa-skladnika" class="control-label">Nazwa</label>
+                        <input type="text" class="form-control" id="nazwa-skladnika" placeholder="np. ryż biały"/>
+                        <span id="responce"></span>
+                    </div>
+                    <div class="col-md-3"></div>
+
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-info" id="nowy-skladnik" onclick="addField()">
+                                <span class="glyphicon glyphicon-plus-sign"></span> Jeszcze jeden składnik
+                            </button>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+                <div class="col-md-10"></div>
+                <button type="submit" class="btn btn-lg btn-primary col-md-2">Dodaj</button>
+            </form>
+        </div>
+    </body>
+</h:body>
+
+</html>
