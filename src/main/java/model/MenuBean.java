@@ -69,17 +69,6 @@ public class MenuBean {
 
     public MenuBean() {
 
-
-
-        this.setCategoriesList();
-        this.setBreakfastList();
-        this.setStarterList();
-        this.setSoupList();
-        this.setMainDishList();
-        this.setDessertList();
-        this.setColdDrinkList();
-        this.setHotDrinkList();
-        this.setDrinkList();
     }
 
     public List<dbmodel.Kategoria> getCategoriesList() {
@@ -131,32 +120,6 @@ public class MenuBean {
 //        this.categoriesList.add("Napoje");
     }
 
-    public void setBreakfastList() {
-        this.breakfastList.add("Jajecznica z pomidorami");
-        this.breakfastList.add("Jajka sadzone na szpinaku");
-        this.breakfastList.add("Jogurt z granolą i miodem");
-        this.breakfastList.add("Naleśniki z brzoskwiniami i sosem czekoladowym");
-        this.breakfastList.add("Szaszłyki z parówką");
-        this.breakfastList.add("Twarożek z łososiem i szczypiorkiem");
-    }
-
-    public void setStarterList() {
-        this.starterList.add("Melon w szynce parmeńskiej");
-        this.starterList.add("Pieczony burak z kozim serem");
-        this.starterList.add("Pieczywo czosnkowe z serem");
-        this.starterList.add("Sałatka Cezar z kurczakiem");
-        this.starterList.add("Sałatka Cezar z krewetkami");
-    }
-
-    public void setSoupList() {
-        this.soupList.add("Barszcz czerwony");
-        this.soupList.add("Pikantny krem z marchwii");
-        this.soupList.add("Zupa ogórkowa");
-        this.soupList.add("Rosół");
-        this.soupList.add("Zupa pomidorowa");
-        this.soupList.add("Zupa krem z selera");
-        this.soupList.add("Żurek");
-    }
 
     public void setMainDishList() {
         this.mainDishList.add("Gołąbki warzywne");

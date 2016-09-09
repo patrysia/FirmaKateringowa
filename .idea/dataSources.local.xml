@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - catering@localhost" uuid="9f3a605f-4c4c-4cd9-9b0a-2af7714799f8">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>catering.*</schema-pattern>
+      <default-schemas>catering.*</default-schemas>
+    </data-source>
+  </component>
+</project>
