@@ -1,21 +1,53 @@
 body {
-    background: transparent;
-}
-.ui-clock {
-    background-color: whitesmoke;
-    font-size: 17px;
-    font-family: Tahoma;
-    color: #555555;
-    border-radius: 0px !important;
-    border-color: whitesmoke;
-}
-.jumbotron {
     background: url(Zdrowy-szybki-i-tani-obiad-wyprobuj-nasze-inspiracje.jpg) no-repeat center center fixed;
-    background-size: cover;
-    height: 100%;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
     color: white;
-    text-shadow: #444 0 1px 1px;
+    font-family: Tahoma;
+    text-shadow: 3px 3px 6px #000000;
+    -webkit-filter: contrast(200%); /* Chrome, Safari, Opera */
+    filter: contrast(200%);
+}
+.ui-clock {
+    background: transparent;
+    font-family: Tahoma;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    border-radius: 0px !important;
+    border: none;
+}
+.jumbotron {
+    font-family: Tahoma;
+    background: transparent;
+    height: 100%;
+    margin-top: 0px;
+}
+ul {
+    list-style-type: none;
+}
+ul li {
+    font-size: 20px;
+    float: right;
+}
+h2 {
+    float: right;
+    text-decoration: underline;
+}
+.row {
+    margin-top: 40px;
+}
+.but {
+    margin-top: 20px;
+}
+.footer {
+    position: fixed;
+    margin-right: 0;
+    margin-left: 320px;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    font-size: 20px;
 }

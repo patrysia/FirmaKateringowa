@@ -7,9 +7,25 @@ import java.io.Serializable;
  */
 public class Skladnik implements Serializable {
 
-    private int id;
+    private int idSkl;
     private String nazwa;
     private int ilosc;
+    private Danie danie;
+
+    public Skladnik() {
+        this.idSkl = 0;
+        this.nazwa = "";
+        this.ilosc = 0;
+        this.danie = new Danie();
+    }
+
+    public Danie getDanie() {
+        return danie;
+    }
+
+    public void setDanie(Danie danie) {
+        this.danie = danie;
+    }
 
     public int getIlosc() {
         return ilosc;
@@ -27,11 +43,11 @@ public class Skladnik implements Serializable {
         this.nazwa = nazwa;
     }
 
-    public int getId() {
-        return id;
+    public int getIdSkl() {
+        return idSkl;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSkl(int id) {
+        this.idSkl = id;
     }
 }

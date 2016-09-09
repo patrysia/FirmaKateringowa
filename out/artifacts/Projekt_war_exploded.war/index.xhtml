@@ -20,13 +20,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
               integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
 
+        <link rel="stylesheet" href="resources/css/styleIndex.css"></link>
+
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                 crossorigin="anonymous" type="javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"  type="javascript"/>
 
-        <title><ui:insert name="title">Twoje pyszne jedzenie</ui:insert></title>
+        <title><ui:insert name="title">Ciesz się smakiem!</ui:insert></title>
         <h:outputStylesheet library="css" name="styleIndex.css" />
         <ui:insert name="css" />
     </h:head>
@@ -38,23 +40,30 @@
                     <div style="float:right;">
                         <p:clock />
                     </div>
-                    <h1>Twoje pyszne jedzenie</h1>
-                    <p class="lead">Ciesz się smakiem!</p>
-                    <p><a class="btn btn-primary btn-lg" href="menu.xhtml">Wybierz posiłek najlepszy dla Ciebie &raquo;</a></p>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h1>Ciesz się smakiem!</h1>
+                            <p class="but"><a class="btn btn-primary btn-lg" href="menu.xhtml">Wybierz posiłek najlepszy dla Ciebie &raquo;</a></p>
+                        </div>
+                        <div class="col-md-4" style="float: right;">
+                            <h2>Najczęściej zamawiane</h2>
+                            <ul>
+                                <li>Pikantny krem z marchwii</li>
+                                <li>Pierogi ruskie</li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-7"></div>
-                    <div class="col-md-5">
-                        <h2>Najczęściej zamawiane</h2>
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <div class="footer">
+                        <p>Telefon</p>
+                        <p>01 22 34 555</p>
                     </div>
                 </div>
             </div>

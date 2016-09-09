@@ -4,34 +4,32 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="dbmodel.Danie" table="dania">
-        <id name="id" type="integer">
-            <column name="id" />
+    <class name="dbmodel.Danie" table="DANIA">
+        <id name="idDan" type="integer">
+            <column name="ID_DAN" />
             <generator class="identity" />
         </id>
+
         <property name="nazwa" type="string">
-            <column name="nazwa" length="255" not-null="true" unique="true" />
+            <column name="NAZWA" length="255" not-null="true" unique="true" />
         </property>
         <property name="cena" type="double">
-            <column name="cena" length="25" not-null="true" unique="false" />
-        </property>
-        <property name="kategoria" type="dbmodel.Kategoria">
-            <column name="kategoria" length="255" not-null="true" unique="true" />
-        </property>
-        <property name="zdjecie" type="string">
-            <column name="zdjecie" length="255" not-null="true" unique="true" />
+            <column name="CENA" length="15" not-null="true" unique="false" />
         </property>
 
-        <set name="skladniki">
-            <key column="id"></key>
-            <composite-element class="dbmodel.Skladnik">
-                <property name="nazwa" type="string">
-                    <column name="nazwa" length="255" not-null="true" unique="true" />
-                </property>
-                <property name="ilosc" type="integer">
-                    <column name="ilosc" length="10" not-null="true" unique="false" />
-                </property>
-            </composite-element>
+        <many-to-one name="kategoria" class="dbmodel.Kategoria" fetch="select">
+            <column name="ID_KAT"/>
+        </many-to-one>
+
+        <property name="zdjecie" type="string">
+            <column name="ZDJECIE" length="255" not-null="true" unique="true" />
+        </property>
+
+        <set name="skladniki" table="SKLADNIKI" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SKL"/>
+            </key>
+            <one-to-many class="dbmodel.Skladnik"/>
         </set>
 
     </class>

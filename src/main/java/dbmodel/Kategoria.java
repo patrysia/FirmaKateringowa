@@ -9,9 +9,23 @@ import java.util.Set;
  */
 public class Kategoria implements Serializable {
 
-    private Integer id = 0;
-    private String nazwa = "";
-    private Set<Danie> dania = new HashSet<>();
+    private Integer idKat;
+    private String nazwa;
+    private Set<Danie> dania;
+
+    public Kategoria() {
+        this.idKat = 0;
+        this.nazwa = "";
+        this.dania = new HashSet<>();
+    }
+
+    public Integer getIdKat() {
+        return idKat;
+    }
+
+    public void setIdKat(Integer idKat) {
+        this.idKat = idKat;
+    }
 
     public Set<Danie> getDania() {
         return dania;
@@ -19,14 +33,6 @@ public class Kategoria implements Serializable {
 
     public void setDania(Set<Danie> dania) {
         this.dania = dania;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNazwa() {

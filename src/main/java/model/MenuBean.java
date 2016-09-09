@@ -1,6 +1,8 @@
 package model;
 
+import dbmodel.Danie;
 import dbmodel.Kategoria;
+import dbmodel.Skladnik;
 import org.hibernate.Session;
 
 
@@ -30,13 +32,39 @@ public class MenuBean {
 
     @PostConstruct
     public void init() {
+        System.out.println("Hibernate");
+
         Session session = dbmodel.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        categoriesList = session.createCriteria(Kategoria.class).list();
+        Kategoria sniadanie = new Kategoria();
+        sniadanie.setIdKat(1);
+        sniadanie.setNazwa("Sniadanie");
+        session.save(sniadanie);
+
+        Danie danie1 = new Danie();
+        danie1.setIdDan(1);
+        danie1.setNazwa("Jajecznica z pomidorami");
+        danie1.setCena(5.5);
+        danie1.setKategoria(sniadanie);
+        danie1.setZdjecie("zdj");
+        session.save(danie1);
+
+        Skladnik skladnik1 = new Skladnik();
+        skladnik1.setIdSkl(1);
+        skladnik1.setNazwa("sol");
+        skladnik1.setIlosc(10);
+        skladnik1.setDanie(danie1);
+
+        danie1.getSkladniki().add(skladnik1);
+        sniadanie.getDania().add(danie1);
+        session.save(skladnik1);
+
+        //categoriesList = session.createCriteria(Kategoria.class).list();
 
 
         session.getTransaction().commit();
+        System.out.println("Done");
     }
 
     public MenuBean() {

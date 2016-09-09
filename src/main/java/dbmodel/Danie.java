@@ -1,6 +1,7 @@
 package dbmodel;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -8,12 +9,29 @@ import java.util.Set;
  */
 public class Danie implements Serializable {
 
-    private Integer id;
+    private int idDan;
     private String nazwa;
     private Double cena;
     private Kategoria kategoria;
     private String zdjecie;
     private Set<Skladnik> skladniki;
+
+    public Danie() {
+        this.idDan = 0;
+        this.nazwa = "";
+        this.cena = 0.0;
+        this.kategoria = new Kategoria();
+        this.zdjecie = "";
+        this.skladniki = new HashSet<>();
+    }
+
+    public int getIdDan() {
+        return idDan;
+    }
+
+    public void setIdDan(int idDan) {
+        this.idDan = idDan;
+    }
 
     public String getNazwa() {
         return nazwa;
@@ -21,14 +39,6 @@ public class Danie implements Serializable {
 
     public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Double getCena() {
