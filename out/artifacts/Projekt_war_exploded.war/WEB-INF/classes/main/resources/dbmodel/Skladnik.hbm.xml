@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="dbmodel.Skladnik" table="skladniki">
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nazwa" type="string">
+            <column name="nazwa" length="255" not-null="true" unique="true" />
+        </property>
+        <property name="ilosc" type="integer">
+            <column name="ilosc" length="10" not-null="true" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>

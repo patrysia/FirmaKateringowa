@@ -13,5 +13,6 @@
         <property name="show_sql">true</property>
         <mapping resource="main/resources/dbmodel/Kategoria.hbm.xml"></mapping>
         <mapping resource="main/resources/dbmodel/Danie.hbm.xml"></mapping>
+        <mapping resource="main/resources/dbmodel/Skladnik.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

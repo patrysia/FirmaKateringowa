@@ -5,12 +5,34 @@
 
 <hibernate-mapping>
     <class name="dbmodel.Danie" table="dania">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="integer">
             <column name="id" />
             <generator class="identity" />
         </id>
         <property name="nazwa" type="string">
             <column name="nazwa" length="255" not-null="true" unique="true" />
         </property>
+        <property name="cena" type="double">
+            <column name="cena" length="25" not-null="true" unique="false" />
+        </property>
+        <property name="kategoria" type="dbmodel.Kategoria">
+            <column name="kategoria" length="255" not-null="true" unique="true" />
+        </property>
+        <property name="zdjecie" type="string">
+            <column name="zdjecie" length="255" not-null="true" unique="true" />
+        </property>
+
+        <set name="skladniki">
+            <key column="id"></key>
+            <composite-element class="dbmodel.Skladnik">
+                <property name="nazwa" type="string">
+                    <column name="nazwa" length="255" not-null="true" unique="true" />
+                </property>
+                <property name="ilosc" type="integer">
+                    <column name="ilosc" length="10" not-null="true" unique="false" />
+                </property>
+            </composite-element>
+        </set>
+
     </class>
 </hibernate-mapping>

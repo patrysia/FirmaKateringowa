@@ -1,6 +1,14 @@
 body {
     background: transparent;
 }
+.ui-clock {
+    background-color: whitesmoke;
+    font-size: 17px;
+    font-family: Tahoma;
+    color: #555555;
+    border-radius: 0px !important;
+    border-color: whitesmoke;
+}
 .jumbotron {
     background: url(Zdrowy-szybki-i-tani-obiad-wyprobuj-nasze-inspiracje.jpg) no-repeat center center fixed;
     background-size: cover;
