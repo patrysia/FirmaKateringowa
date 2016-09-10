@@ -27,7 +27,7 @@
 
         <set name="skladniki" table="SKLADNIKI" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="ID_SKL"/>
+                <column name="ID_DAN"/>
             </key>
             <one-to-many class="dbmodel.Skladnik"/>
         </set>

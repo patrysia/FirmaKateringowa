@@ -4,6 +4,7 @@ import dbmodel.Danie;
 import dbmodel.Kategoria;
 import dbmodel.Skladnik;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 
 
 import javax.annotation.PostConstruct;
@@ -20,15 +21,9 @@ import java.util.List;
 public class MenuBean {
 
     List<Kategoria> categoriesList = new ArrayList<>();
-
-    List<String> breakfastList = new ArrayList<>();
-    List<String> starterList = new ArrayList<>();
-    List<String> soupList = new ArrayList<>();
-    List<String> mainDishList = new ArrayList<>();
-    List<String> dessertList = new ArrayList<>();
-    List<List> drinkList = new ArrayList<>();
-    List<String> coldDrinkList = new ArrayList<>();
-    List<String> hotDrinkList = new ArrayList<>();
+    List<Danie> dishesList = new ArrayList<>();
+    List<Skladnik> ingredientsList = new ArrayList<>();
+    List<Danie> dishesCategory =  new ArrayList<>();
 
     @PostConstruct
     public void init() {
@@ -37,31 +32,9 @@ public class MenuBean {
         Session session = dbmodel.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Kategoria sniadanie = new Kategoria();
-        sniadanie.setIdKat(1);
-        sniadanie.setNazwa("Sniadanie");
-        session.save(sniadanie);
-
-        Danie danie1 = new Danie();
-        danie1.setIdDan(1);
-        danie1.setNazwa("Jajecznica z pomidorami");
-        danie1.setCena(5.5);
-        danie1.setKategoria(sniadanie);
-        danie1.setZdjecie("zdj");
-        session.save(danie1);
-
-        Skladnik skladnik1 = new Skladnik();
-        skladnik1.setIdSkl(1);
-        skladnik1.setNazwa("sol");
-        skladnik1.setIlosc(10);
-        skladnik1.setDanie(danie1);
-
-        danie1.getSkladniki().add(skladnik1);
-        sniadanie.getDania().add(danie1);
-        session.save(skladnik1);
-
-        //categoriesList = session.createCriteria(Kategoria.class).list();
-
+        categoriesList = session.createCriteria(Kategoria.class).addOrder(Order.asc("idKat")).list();
+        dishesList = session.createCriteria(Danie.class).list();
+        ingredientsList = session.createCriteria(Skladnik.class).list();
 
         session.getTransaction().commit();
         System.out.println("Done");
@@ -69,6 +42,26 @@ public class MenuBean {
 
     public MenuBean() {
 
+    }
+
+    public String findDishesByCategory(Integer id_kat) {
+        dishesCategory.clear();
+        for (Danie d: this.dishesList) {
+            System.err.println(id_kat);
+            if (d.getKategoria().getIdKat() == id_kat) {
+
+                dishesCategory.add(d);
+            }
+        }
+        return "dish";
+    }
+
+    public List<Danie> getDishesCategory() {
+        return dishesCategory;
+    }
+
+    public void setDishesCategory(List<Danie> dishesCategory) {
+        this.dishesCategory = dishesCategory;
     }
 
     public List<dbmodel.Kategoria> getCategoriesList() {
@@ -79,86 +72,19 @@ public class MenuBean {
         this.categoriesList = categoriesList;
     }
 
-    public List<String> getColdDrinkList() {
-        return coldDrinkList;
+    public List<Danie> getDishesList() {
+        return dishesList;
     }
 
-    public List<String> getHotDrinkList() {
-        return hotDrinkList;
+    public void setDishesList(List<Danie> dishesList) {
+        this.dishesList = dishesList;
     }
 
-    public List<String> getBreakfastList() {
-        return breakfastList;
+    public List<Skladnik> getIngredientsList() {
+        return ingredientsList;
     }
 
-    public List<String> getStarterList() {
-        return starterList;
-    }
-
-    public List<String> getSoupList() {
-        return soupList;
-    }
-
-    public List<String> getMainDishList() {
-        return mainDishList;
-    }
-
-    public List<String> getDessertList() {
-        return dessertList;
-    }
-
-    public List<List> getDrinkList() {
-        return drinkList;
-    }
-
-    public void setCategoriesList() {
-//        this.categoriesList.add("Śniadania");
-//        this.categoriesList.add("Przystawki");
-//        this.categoriesList.add("Zupy");
-//        this.categoriesList.add("Dania główne");
-//        this.categoriesList.add("Desery");
-//        this.categoriesList.add("Napoje");
-    }
-
-
-    public void setMainDishList() {
-        this.mainDishList.add("Gołąbki warzywne");
-        this.mainDishList.add("Kotlet schabowy, frytki, surówka");
-        this.mainDishList.add("Kotlety mielone z buraczkami");
-        this.mainDishList.add("Łosoś pieczony z makaronem i warzywami");
-        this.mainDishList.add("Pierogi ruskie");
-        this.mainDishList.add("Pierś z kurczaka z mozarellą");
-        this.mainDishList.add("Pyzy z mięsem");
-        this.mainDishList.add("Ryż z ciecierzycą i rodzynkami");
-    }
-
-    public void setDessertList() {
-        this.dessertList.add("Jabłko pieczone z miodem");
-        this.dessertList.add("Lody z owocami");
-        this.dessertList.add("Sernik");
-        this.dessertList.add("Szarlotka");
-        this.dessertList.add("Tiramisu");
-    }
-
-    public void setColdDrinkList() {
-        this.coldDrinkList.add("Woda niegazowana");
-        this.coldDrinkList.add("Woda gazowana");
-        this.coldDrinkList.add("Sok pomarańczowy");
-        this.coldDrinkList.add("Kompot wiśniowy");
-        this.coldDrinkList.add("Coca-cola");
-    }
-
-    public void setHotDrinkList() {
-        this.hotDrinkList.add("Espresso");
-        this.hotDrinkList.add("Latte");
-        this.hotDrinkList.add("Cappuccino");
-        this.hotDrinkList.add("Herbata czarna");
-        this.hotDrinkList.add("Zielona herbata");
-        this.hotDrinkList.add("Czekolada na gorąco");
-    }
-
-    public void setDrinkList() {
-        this.drinkList.add(this.coldDrinkList);
-        this.drinkList.add(this.hotDrinkList);
+    public void setIngredientsList(List<Skladnik> ingredientsList) {
+        this.ingredientsList = ingredientsList;
     }
 }

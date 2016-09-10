@@ -5,6 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -34,25 +35,23 @@
     <body>
         <div class="container">
             <h1 class="header-menu">Wybierz menu</h1>
-            <!--
-            <p:dataTable var="kategoria" value="#{menuBean.categoriesList}">
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="ID"/>
-                    </f:facet>
-                    <h:outputText value="#{kategoria.id}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Nazwa"/>
-                    </f:facet>
-                    <h:outputText value="#{kategoria.nazwa}"></h:outputText>
-                </p:column>
-            </p:dataTable>
-            <p:dataList value="#{menuBean.categoriesList}" var="kategoria" itemType="ordered">
-                #{kategoria.id}, #{kategoria.nazwa}
-            </p:dataList>
-            -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h:form>
+                        <ul class="list-group">
+                            <c:forEach items="#{menuBean.categoriesList}" var="kategoria">
+                                <li class="list-group-item">
+                                    <p:commandLink value="#{kategoria.nazwa}" action="#{menuBean.findDishesByCategory(kategoria.idKat)}" >
+                                        <f:param value="#{kategoria.idKat}" name="idKat"></f:param>
+                                    </p:commandLink>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </h:form>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="img-responsive">
