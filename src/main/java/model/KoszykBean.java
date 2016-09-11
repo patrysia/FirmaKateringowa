@@ -33,7 +33,6 @@ public class KoszykBean {
      * @param danie
      */
     public String dodajDoKoszyka(Danie danie) {
-        System.err.println("Dodaje do koszyka: " + danie.getNazwa());
         this.listaDan.add(danie);
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Pomyślnie dodano do koszyka", danie.getNazwa());
         FacesContext.getCurrentInstance().addMessage(null, msg);
@@ -45,8 +44,11 @@ public class KoszykBean {
      *
      * @param danie
      */
-    public void usunZkoszyka(Danie danie) {
+    public String usunZkoszyka(Danie danie) {
         this.listaDan.remove(danie);
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usunięto jedną pozycję z koszyka", danie.getNazwa());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        return null;
     }
 
     /**
@@ -58,7 +60,10 @@ public class KoszykBean {
         zamowienie.setKlient(klient);
         listaDan.clear();
 
-        return "zamowienieZlozone";
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Zamówienie zostało złożone pomyślnie", zamowienie.getStatus());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+
+        return "menu?faces-redirect=true";
     }
 
     public List<Danie> getListaDan() {

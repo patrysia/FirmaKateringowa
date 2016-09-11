@@ -6,23 +6,19 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import java.util.List;
 
 /**
- * Created by Patrycja on 10.09.2016.
+ * Created by Patrycja on 11.09.2016.
  */
-@ManagedBean
-@RequestScoped
-public class LogowanieBean {
+public class RejestracjaBean {
 
+    private String imie;
+    private String nazwisko;
     private String email;
     private String haslo;
 
-    public String zaloguj() {
+    public String zarejestruj() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Klient klient = (Klient)session.createCriteria(Klient.class).add(Restrictions.eq("email", email.toLowerCase())).uniqueResult();
@@ -30,22 +26,34 @@ public class LogowanieBean {
 
         FacesContext context = FacesContext.getCurrentInstance();
 
-        if(klient == null){
-            context.addMessage(null,  new FacesMessage("Brak uzytownika w bazie"));
-            email = null;
-            haslo = null;
-            return null;
-        }
-        if(!klient.getHaslo().equals(haslo)){
-            context.addMessage(null,  new FacesMessage("Zle haslo"));
+        if (klient.getImie().isEmpty() || klient.getNazwisko().isEmpty() || klient.getEmail().isEmpty() || klient.getHaslo().isEmpty()) {
+            context.addMessage(null,  new FacesMessage("Aby się zarejestrować, musisz uzupełnić wszystkie pola"));
+            imie = null;
+            nazwisko = null;
             email = null;
             haslo = null;
             return null;
         }
 
-        context.getExternalContext().getSessionMap().put("klient", klient);
-        return "index?faces-redirect=true";
+        // trzeba go teraz dodac do bazy?
 
+        return "login?faces-redirect=true";
+    }
+
+    public String getImie() {
+        return imie;
+    }
+
+    public void setImie(String imie) {
+        this.imie = imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
     }
 
     public String getEmail() {

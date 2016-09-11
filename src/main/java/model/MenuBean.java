@@ -1,10 +1,12 @@
 package model;
 
-import dbmodel.Danie;
-import dbmodel.Kategoria;
-import dbmodel.Skladnik;
+import dbmodel.*;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.*;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
 
 
 import javax.annotation.PostConstruct;
@@ -44,6 +46,11 @@ public class MenuBean {
 
     }
 
+    /**
+     *
+     * @param id_kat
+     * @return
+     */
     public String findDishesByCategory(Integer id_kat) {
         dishesCategory.clear();
         for (Danie d: this.dishesList) {
@@ -54,6 +61,26 @@ public class MenuBean {
             }
         }
         return "dish";
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<Danie> findBestDishes() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        ProjectionList projectionList = Projections.projectionList().add(Projections.groupProperty("")).add(Projections.alias(Projections.rowCount(), ""));
+        Criteria criteria = session.createCriteria(Zamowienie.class).setProjection(projectionList);
+        List<Danie[]> dania = criteria.addOrder(Order.desc("ilosc")).list();
+        HibernateUtil.shutdown();
+
+
+        List<Danie> bestDishes = new ArrayList<>();
+        for(Object[] result : dania) {
+            bestDishes.add((Danie) result[0]);
+        }
+
+        return bestDishes;
     }
 
     public List<Danie> getDishesCategory() {

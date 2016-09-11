@@ -46,7 +46,7 @@
                                 <p><h:outputText value="[#{klient.imie}"/> <h:outputText value=" #{klient.nazwisko}]"/> </p>
                             </h:panelGroup>
                             <h:panelGroup rendered="#{empty klient}">
-                                <p>[Niezalogowany]</p>
+                                <a href="login.xhtml" class="btn btn-info" style="width: 100px; color: white; text-shadow: 3px 3px 6px #000000; margin-left: 5px;">Zaloguj</a>
                             </h:panelGroup>
                         </div>
                     </div>
@@ -56,14 +56,15 @@
                             <p class="but"><a class="btn btn-primary btn-lg" href="menu.xhtml">Wybierz posiłek najlepszy dla Ciebie &raquo;</a></p>
                         </div>
                         <div class="col-md-4" style="float: right;">
-                            <h2>Najczęściej zamawiane</h2>
-                            <ul>
-                                <li>Pikantny krem z marchwii</li>
-                                <li>Pierogi ruskie</li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
+                            <p:growl widgetVar="growl" showDetail="true" />
+                            <h:form id="bestDishesForm">
+                                <!--
+                                <p:dataList id="bestDishesList" value="#{menuBean.findBestDishes}" var="bestDish" type="ordered">
+                                    <f:facet name="header"><h2>Najczęściej zamawiane</h2></f:facet>
+                                    <h:outputText value="#{bestDish.nazwa}"/>
+                                </p:dataList>
+                                -->
+                            </h:form>
                         </div>
                     </div>
                 </div>

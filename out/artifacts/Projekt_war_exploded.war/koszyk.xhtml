@@ -33,6 +33,13 @@
     <h:body>
         <body>
             <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-right" style="margin-top: 10px;">
+                        <a href="menu.xhtml" class="btn btn-info" style="width: 100px; color: white; text-shadow: 3px 3px 6px #000000; margin-left: 5px;">Menu</a>
+                        <a href="login.xhtml" class="btn btn-info" style="width: 100px; color: white; text-shadow: 3px 3px 6px #000000; margin-left: 5px;">Wyloguj</a>
+                    </div>
+                </div>
+
                 <div class="row" style="color: white; font-family: Tahoma; font-size: 19px; text-shadow: 3px 3px 6px #000000; margin-top: 20px;">
                     <div class="col-lg-12 text-right">
                         <h:panelGroup rendered="#{not empty klient}">
@@ -53,7 +60,7 @@
                             <p:column headerText="Id dania" style="background-color: #28a4c9; text-shadow: none; text-align: center; width: 85px;">
                                 <h:outputText value="#{danie.idDan}"/>
                             </p:column>
-                            <p:column headerText="Nazwa" style="background-color: #28a4c9; text-shadow: none; text-align: center;">
+                            <p:column headerText="Nazwa" style="background-color: #28a4c9; text-shadow: none; text-align: center; font-weight: 900;">
                                 <h:outputText value="#{danie.nazwa}"/>
                             </p:column>
                             <p:column headerText="Cena" style="background-color: #28a4c9; text-shadow: none; text-align: center; width: 90px;">
@@ -61,7 +68,7 @@
                             </p:column>
 
                             <p:column headerText="" style="background-color: #28a4c9; text-align: center; width: 90px;">
-                                <p:commandButton value="Usuń" action="#{koszykBean.usunZkoszyka(danie)}" styleClass="ui-priority-primary"/>
+                                <p:commandButton value="Usuń" action="#{koszykBean.usunZkoszyka(danie)}" ajax="false" styleClass="ui-priority-primary"/>
                             </p:column>
                         </p:dataTable>
                     </h:form>
