@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="dbmodel.Zamowienie" table="ZAMOWIENIA">
+        <id name="idZam" type="integer">
+            <column name="ID_ZAM"/>
+            <generator class="identity"/>
+        </id>
+
+        <property name="dataUtworzenia" type="date">
+            <column name="DATA_UTWORZENIA" length="30" not-null="true" unique="false"/>
+        </property>
+
+        <property name="dataDostawy" type="date">
+            <column name="DATA_DOSTAWY" length="30" not-null="true" unique="false"/>
+        </property>
+
+        <property name="adresZam" type="string">
+            <column name="ADRES_ZAMOWIENIA" length="255" not-null="true" unique="false"/>
+        </property>
+
+        <property name="status" type="string">
+            <column name="STATUS" length="100" not-null="true" unique="false"/>
+        </property>
+
+        <many-to-one name="klient" class="dbmodel.Klient" fetch="select">
+            <column name="ID_KLIENTA"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

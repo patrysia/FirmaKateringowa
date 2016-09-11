@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+              integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+
+        <link rel="stylesheet" href="resources/css/styleIndex.css"></link>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous" type="javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"  type="javascript"/>
+
+        <title><ui:insert name="title">Koszyk</ui:insert></title>
+    </h:head>
+
+    <h:body>
+        <body>
+        <div class="container">
+            <div class="row" style="color: white; font-family: Tahoma; font-size: 19px; text-shadow: 3px 3px 6px #000000; margin-top: 20px;">
+                <div class="col-lg-12 text-right">
+                    <h:panelGroup rendered="#{not empty klient}">
+                        <p><h:outputText value="[#{klient.imie}"/> <h:outputText value=" #{klient.nazwisko}]"/> </p>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{empty klient}">
+                        <p>[Niezalogowany]</p>
+                    </h:panelGroup>
+                </div>
+            </div>
+            <h1 class="header" style="text-align: center; margin-top: 5px; margin-bottom: 30px;">Dane dotyczące zamówienia</h1>
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <h:form id="form_zamowienie" styleClass="form-vertical">
+                        <p:growl autoUpdate="true" />
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <h:outputText for="adres" value="Adres dostawy" style="font-size: 20px; margin-bottom: 5px; text-shadow: 3px 3px 6px #000000;"/>
+                                    <h:inputText id="adres" value="#{koszykBean.zamowienie.adresZam}" styleClass="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" style="text-shadow: none;">
+                                    <h:outputText for="czas" value="Data dostawy" style="font-size: 20px; margin-bottom: 5px; text-shadow: 3px 3px 6px #000000;"/>
+                                    <br/>
+                                    <p:calendar id="czas" value="#{koszykBean.zamowienie.dataDostawy}" pattern="HH:mm dd/MM/yyyy" style="text-shadow: none;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <div class="form-group">
+                        <h:commandButton value="Zamawiam" action="#{koszykBean.zlozZamowienie}" styleClass="btn btn-lg btn-primary"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </body>
+    </h:body>
+
+</html>

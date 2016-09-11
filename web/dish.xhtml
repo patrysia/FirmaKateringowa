@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://java.sun.com/jstl/core"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://java.sun.com/jsf/html">
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,6 +19,8 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
               integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+
+        <link rel="stylesheet" href="resources/css/styleDish.css"></link>
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -33,22 +35,40 @@
     <h:body>
         <body>
         <div class="container">
-            <h1 class="header-menu">Dania</h1>
+            <div class="row" style="color: white; font-family: Tahoma; font-size: 19px; text-shadow: 3px 3px 6px #000000; margin-top: 20px;">
+                <div class="col-lg-12 text-right">
+                    <h:panelGroup rendered="#{not empty klient}">
+                        <p><h:outputText value="[#{klient.imie}"/> <h:outputText value=" #{klient.nazwisko}]"/> </p>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{empty klient}">
+                        <p>Niezalogowany</p>
+                    </h:panelGroup>
+                </div>
+            </div>
+            <h1 class="header-menu" style="text-align: center; margin-bottom: 20px;">Dania</h1>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
                     <h:form>
+                        <p:growl autoUpdate="true"/>
                         <ul class="list-group">
                             <c:forEach items="#{menuBean.dishesCategory}" var="dish">
-                                <li class="list-group-item" style="background-color: #e4b9c0;">
-                                    <p:outputText value="#{dish.nazwa}" style="font-weight: 900; text-align: center; font-size: 17px;"/>
-                                    <p:outputText value="#{dish.cena} zł" style="float: right; font-weight: 800;"/>
+                                <li class="list-group-item" style="font-family: Tahoma; font-size: 18px; background-color: #66afe9; display: block; height: 50px;">
+                                    <p:commandButton value="Dodaj do koszyka" action="#{koszykBean.dodajDoKoszyka(dish)}" ajax="false" style="float: right; font-size: 15px; margin-right: 30px;"/>
+                                    <h:outputText value="#{dish.nazwa}" style="font-weight: 900; margin-left: 30px;"/>
+                                    <h:outputText value=" #{dish.cena} zł" style="float: right; margin-right: 30px;"/>
                                 </li>
                                 <li class="list-group-item">
+                                    <h:outputText value="Składniki" style="margin-left: 30px; font-family: Tahoma; font-weight: 600;"/>
+                                    <ul class="list-group-item">
+                                        <h:outputText value="Nazwa" style="float: left; font-family: Tahoma; font-weight: 600; margin-left: 25px; "/>
+                                        <h:outputText value="Ilość" style="float: right; font-family: Tahoma; font-weight: 600; margin-right: 30px;"/>
+                                    </ul>
                                     <c:forEach items="#{dish.skladniki}" var="skladnik">
-                                        <li class="list-group-item" style="background-color: #e8e8e8;">
-                                            <p:outputText value="#{skladnik.nazwa}" style="font-weight: 900;"/>
-                                            <p:outputText value="#{skladnik.ilosc}" style="float: right; font-weight: 500;"/>
+                                        <li class="list-group-item" style="display: block; height: 40px;">
+                                            <h:outputText value="#{skladnik.nazwa}" style="float: left; margin-left: 40px; font-family: Tahoma;"/>
+                                            <h:outputText value="#{skladnik.ilosc}" style="float: right; margin-right: 50px;"/>
                                         </li>
                                     </c:forEach>
                                 </li>
@@ -56,6 +76,7 @@
                         </ul>
                     </h:form>
                 </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
         </body>

@@ -9,7 +9,7 @@ import org.hibernate.criterion.Order;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Patrycja on 23.08.2016.
  */
 @ManagedBean (name = "menuBean")
-@RequestScoped
+@SessionScoped
 public class MenuBean {
 
     List<Kategoria> categoriesList = new ArrayList<>();

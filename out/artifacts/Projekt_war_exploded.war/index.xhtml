@@ -41,6 +41,16 @@
                         <p:clock />
                     </div>
                     <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <h:panelGroup rendered="#{not empty klient}">
+                                <p><h:outputText value="[#{klient.imie}"/> <h:outputText value=" #{klient.nazwisko}]"/> </p>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{empty klient}">
+                                <p>[Niezalogowany]</p>
+                            </h:panelGroup>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-8">
                             <h1>Ciesz się smakiem!</h1>
                             <p class="but"><a class="btn btn-primary btn-lg" href="menu.xhtml">Wybierz posiłek najlepszy dla Ciebie &raquo;</a></p>

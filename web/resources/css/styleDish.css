@@ -1,0 +1,19 @@
+body {
+    background: url(Zdrowy-szybki-i-tani-obiad-wyprobuj-nasze-inspiracje.jpg) no-repeat center center fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    -webkit-filter: contrast(200%); /* Chrome, Safari, Opera */
+    filter: contrast(200%);
+}
+.header-menu {
+    color: white;
+    font-family: Tahoma;
+    text-shadow: 3px 3px 6px #000000;
+    margin-bottom: 30px;
+}
+.container {
+    margin-bottom: 40px;
+}

@@ -15,5 +15,7 @@
         <mapping resource="main/resources/dbmodel/Kategoria.hbm.xml"></mapping>
         <mapping resource="main/resources/dbmodel/Danie.hbm.xml"></mapping>
         <mapping resource="main/resources/dbmodel/Skladnik.hbm.xml"></mapping>
+        <mapping resource="main/resources/dbmodel/Klient.hbm.xml"></mapping>
+        <mapping resource="main/resources/dbmodel/Zamowienie.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>
