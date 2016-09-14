@@ -2,9 +2,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
 
 
 <h:head>
@@ -70,10 +72,10 @@
                         <label for="nazwa-dania" class="control-label">Nazwa dania</label>
                         <input type="text" class="form-control" id="nazwa-dania" placeholder="np. Naleśniki z serem"/>
                         <br></br>
-                        <div class="imageUpload btn btn-info">
+                        <div class="imageUpload btn btn-info disabled">
                             <span> <span class="glyphicon glyphicon-plus-sign"></span> Dodaj zdjęcie</span>
                             <input type="file" class="upload" />
-                        </div>cz
+                        </div>
                     </div>
                     <div class="col-md-3"></div>
                 </div>

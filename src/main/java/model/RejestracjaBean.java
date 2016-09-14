@@ -35,7 +35,7 @@ public class RejestracjaBean {
             return null;
         }
 
-        // trzeba go teraz dodac do bazy?
+        //
 
         return "login?faces-redirect=true";
     }

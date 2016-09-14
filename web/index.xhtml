@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:c="http://java.sun.com/jstl/core"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
       xmlns:p="http://primefaces.org/ui">
 
 
@@ -60,7 +60,7 @@
                             <!--
                             <p:growl widgetVar="growl" showDetail="true" />
                             <h:form id="bestDishesForm">
-                                <p:dataList id="bestDishesList" value="#{menuBean.findBestDishes}" var="bestDish" type="ordered">
+                                <p:dataList id="bestDishesList" value="#{menuBean.findBestDishes()}" var="bestDish" type="ordered">
                                     <f:facet name="header"><h2>Najczęściej zamawiane</h2></f:facet>
                                     <h:outputText value="#{bestDish.nazwa}"/>
                                 </p:dataList>

@@ -2,10 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:c="http://java.sun.com/jstl/core"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
@@ -39,7 +39,8 @@
                 <div class="col-md-12 text-right" style="margin-top: 10px;">
                     <a href="menu.xhtml" class="btn btn-info" style="width: 100px; color: white; text-shadow: 3px 3px 6px #000000; margin-left: 5px;">Menu</a>
                     <a href="koszyk.xhtml" class="btn btn-info" style="width: 100px; color: white; text-shadow: 3px 3px 6px #000000; margin-left: 5px;">Koszyk</a>
-                    <a href="login.xhtml" class="btn btn-info" style="width: 100px; color: white; text-shadow: 3px 3px 6px #000000; margin-left: 5px;">Wyloguj</a>
+                    <h:commandButton rendered="#{not empty klient}" action="#{logowanieBean.wyloguj()}" value="Wyloguj" styleClass="btn btn-info" style="width: 100px; color: white; text-shadow: 3px 3px 6px #000000; margin-left: 5px;"></h:commandButton>
+                    <h:commandButton rendered="#{empty klient}" action="#{logowanieBean.zaloguj()}" value="Zaloguj" styleClass="btn btn-info" style="width: 100px; color: white; text-shadow: 3px 3px 6px #000000; margin-left: 5px;"></h:commandButton>
                 </div>
             </div>
             <div class="row" style="color: white; font-family: Tahoma; font-size: 19px; text-shadow: 3px 3px 6px #000000; margin-top: 20px;">
@@ -48,7 +49,7 @@
                         <p><h:outputText value="[#{klient.imie}"/> <h:outputText value=" #{klient.nazwisko}]"/> </p>
                     </h:panelGroup>
                     <h:panelGroup rendered="#{empty klient}">
-                        <p>Niezalogowany</p>
+                        <p>[Niezalogowany]</p>
                     </h:panelGroup>
                 </div>
             </div>

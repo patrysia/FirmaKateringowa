@@ -1,15 +1,15 @@
 package rest;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dbmodel.Kategoria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 
 import javax.ejb.Stateless;
 import javax.faces.bean.RequestScoped;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
@@ -37,9 +37,24 @@ public class RestService {
         categoriesList = session.createCriteria(Kategoria.class).addOrder(Order.asc("idKat")).list();
         session.getTransaction().commit();
 
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setExclusionStrategies(new PotrawaBezKategorii()).create();
         String json = gson.toJson(categoriesList);
 
         return json;
+    }
+
+    @POST
+    @Path("/nowakategoria")
+    @Consumes("application/json")
+    public Response postKategoria(String json) {
+
+        Kategoria kategoria = new Gson().fromJson(json, Kategoria.class);
+
+        Session session = dbmodel.HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(kategoria);
+        session.getTransaction().commit();
+//
+        return Response.status(Response.Status.CREATED).build();
     }
 }

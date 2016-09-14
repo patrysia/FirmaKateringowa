@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Patrycja on 10.09.2016.
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class LogowanieBean {
 
     private String email;
@@ -25,19 +25,19 @@ public class LogowanieBean {
     public String zaloguj() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        Klient klient = (Klient)session.createCriteria(Klient.class).add(Restrictions.eq("email", email.toLowerCase())).uniqueResult();
+        Klient klient = (Klient) session.createCriteria(Klient.class).add(Restrictions.eq("email", email.toLowerCase())).uniqueResult();
         session.getTransaction().commit();
 
         FacesContext context = FacesContext.getCurrentInstance();
 
-        if(klient == null){
-            context.addMessage(null,  new FacesMessage("Brak uzytownika w bazie"));
+        if (klient == null) {
+            context.addMessage(null, new FacesMessage("Brak uzytownika w bazie"));
             email = null;
             haslo = null;
             return null;
         }
-        if(!klient.getHaslo().equals(haslo)){
-            context.addMessage(null,  new FacesMessage("Zle haslo"));
+        if (!klient.getHaslo().equals(haslo)) {
+            context.addMessage(null, new FacesMessage("Zle haslo"));
             email = null;
             haslo = null;
             return null;
@@ -45,7 +45,12 @@ public class LogowanieBean {
 
         context.getExternalContext().getSessionMap().put("klient", klient);
         return "index?faces-redirect=true";
+    }
 
+    public String wyloguj(){
+        System.out.println("ADADASD");
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "login?faces-redirect=true";
     }
 
     public String getEmail() {

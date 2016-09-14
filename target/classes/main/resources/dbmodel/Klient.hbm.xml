@@ -27,6 +27,10 @@
             <column name="EMAIL" length="100" not-null="true" unique="true"/>
         </property>
 
+        <property name="pozycja" type="string">
+            <column name="POZYCJA" length="100" not-null="true" unique="false"/>
+        </property>
+
         <set name="zamowienia" table="ZAMOWIENIA" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="ID_ZAM" not-null="true"/>

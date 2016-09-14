@@ -146,86 +146,90 @@
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="39" parent="5" name="PRIMARY">
+      <column id="39" parent="5" name="POZYCJA">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="40" parent="5" name="PRIMARY">
         <columns>ID_KLIENTA</columns>
         <primary>1</primary>
       </key>
-      <column id="40" parent="6" name="ID_ZAM">
+      <column id="41" parent="6" name="ID_ZAM">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="41" parent="6" name="DATA_UTWORZENIA">
+      <column id="42" parent="6" name="DATA_UTWORZENIA">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <column id="42" parent="6" name="DATA_DOSTAWY">
+      <column id="43" parent="6" name="DATA_DOSTAWY">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="43" parent="6" name="ADRES_ZAMOWIENIA">
+      <column id="44" parent="6" name="ADRES_ZAMOWIENIA">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="44" parent="6" name="STATUS">
+      <column id="45" parent="6" name="STATUS">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="45" parent="6" name="ID_KLIENTA">
+      <column id="46" parent="6" name="ID_KLIENTA">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <index id="46" parent="6" name="ID_KLIENTA">
+      <index id="47" parent="6" name="ID_KLIENTA">
         <columns>ID_KLIENTA</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="47" parent="6" name="PRIMARY">
+      <key id="48" parent="6" name="PRIMARY">
         <columns>ID_ZAM</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="48" parent="6" name="zamowienia_ibfk_1">
+      <foreign-key id="49" parent="6" name="zamowienia_ibfk_1">
         <columns>ID_KLIENTA</columns>
         <ref-key>~.klienci.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="49" parent="7" name="ID_POZYCJA_ZAMOWIENIA">
+      <column id="50" parent="7" name="ID_POZYCJA_ZAMOWIENIA">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="50" parent="7" name="ID_ZAM">
+      <column id="51" parent="7" name="ID_ZAM">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="51" parent="7" name="ID_DAN">
+      <column id="52" parent="7" name="ID_DAN">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="52" parent="7" name="ILOSC">
+      <column id="53" parent="7" name="ILOSC">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <index id="53" parent="7" name="ID_DAN">
+      <index id="54" parent="7" name="ID_DAN">
         <columns>ID_DAN</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="54" parent="7" name="ID_ZAM">
+      <index id="55" parent="7" name="ID_ZAM">
         <columns>ID_ZAM</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="55" parent="7" name="PRIMARY">
+      <key id="56" parent="7" name="PRIMARY">
         <columns>ID_POZYCJA_ZAMOWIENIA</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="56" parent="7" name="pozycje_zamowienia_ibfk_1">
+      <foreign-key id="57" parent="7" name="pozycje_zamowienia_ibfk_1">
         <columns>ID_ZAM</columns>
         <ref-key>~.zamowienia.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="57" parent="7" name="pozycje_zamowienia_ibfk_2">
+      <foreign-key id="58" parent="7" name="pozycje_zamowienia_ibfk_2">
         <columns>ID_DAN</columns>
         <ref-key>~.dania.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>

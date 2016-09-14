@@ -12,7 +12,16 @@ public class Klient {
     private String nazwisko;
     private String haslo;
     private String email;
+    private String pozycja;
     private Set<Zamowienie> zamowienia = new HashSet<>();
+
+    public String getPozycja() {
+        return pozycja;
+    }
+
+    public void setPozycja(String pozycja) {
+        this.pozycja = pozycja;
+    }
 
     public int getIdKlienta() {
         return idKlienta;

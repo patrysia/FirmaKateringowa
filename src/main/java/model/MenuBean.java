@@ -67,6 +67,7 @@ public class MenuBean {
      *
      * @return
      */
+    /**
     public List<Danie> findBestDishes() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         ProjectionList projectionList = Projections.projectionList().add(Projections.groupProperty("")).add(Projections.alias(Projections.rowCount(), ""));
@@ -81,6 +82,20 @@ public class MenuBean {
         }
 
         return bestDishes;
+    }
+    */
+
+    /**
+     *
+     * @param kategoria
+     */
+    public void removeCategory(Kategoria kategoria) {
+        for (Kategoria k: this.categoriesList
+             ) {
+            if (k.getIdKat() == kategoria.getIdKat()) {
+                this.categoriesList.remove(k);
+            }
+        }
     }
 
     public List<Danie> getDishesCategory() {
